@@ -1,6 +1,5 @@
 package project.bank.model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import org.jspecify.annotations.Nullable;
