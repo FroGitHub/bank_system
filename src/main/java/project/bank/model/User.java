@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
@@ -17,13 +18,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 @SQLRestriction("is_deleted = false")
 @Getter
 @Setter
-@AllArgsConstructor
+@NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
     private String password;

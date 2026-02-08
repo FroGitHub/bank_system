@@ -1,30 +1,36 @@
 package project.bank.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import org.jspecify.annotations.Nullable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "roles")
-@AllArgsConstructor
+@Getter
+@Setter
 public class Role implements GrantedAuthority {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
-    private RoleEnum role;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, unique = true)
+    private RoleName name;
 
     @Override
-    public @Nullable String getAuthority() {
-        return role.name();
+    public String getAuthority() {
+        return name.name();
     }
 
-    public enum RoleEnum {
-        ROLE_ADMIN,
+    public enum RoleName {
         ROLE_USER,
-        ROLE_ACCOUNTANT
+        ROLE_ADMIN,
     }
 }
