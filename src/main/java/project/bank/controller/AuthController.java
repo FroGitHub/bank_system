@@ -1,5 +1,7 @@
 package project.bank.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -14,6 +16,7 @@ import project.bank.dto.UserRegisterResponseDto;
 import project.bank.security.AuthenticationService;
 import project.bank.service.UserService;
 
+@Tag(name = "Auth controller", description = "reg/log/logout")
 @RestController
 @RequestMapping("/auth")
 @AllArgsConstructor
@@ -22,6 +25,7 @@ public class AuthController {
     private UserService userService;
     private AuthenticationService authenticationService;
 
+    @Operation(summary = "User registration")
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public UserRegisterResponseDto register(@Valid UserRegisterRequestDto userRegReqDto) {
@@ -29,11 +33,13 @@ public class AuthController {
         return userService.register(userRegReqDto);
     }
 
+    @Operation(summary = "User logging")
     @PostMapping("/login")
     public UserLoginResponseDto login(@Valid UserLoginRequestDto userLogReqDto) {
         return authenticationService.login(userLogReqDto);
     }
 
+    @Operation(summary = "User logout", description = "Logout and clear cookies")
     @GetMapping("/logout")
     public ResponseEntity<Void> logout() {
         ResponseCookie cookie = ResponseCookie.from("jwt", "")
