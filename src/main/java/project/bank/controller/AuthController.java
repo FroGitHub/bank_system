@@ -9,10 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import project.bank.dto.UserLoginRequestDto;
-import project.bank.dto.UserLoginResponseDto;
-import project.bank.dto.UserRegisterRequestDto;
-import project.bank.dto.UserRegisterResponseDto;
+import project.bank.dto.user.UserLoginRequestDto;
+import project.bank.dto.user.UserLoginResponseDto;
+import project.bank.dto.user.UserRegisterRequestDto;
+import project.bank.dto.user.UserRegisterResponseDto;
 import project.bank.security.AuthenticationService;
 import project.bank.service.UserService;
 

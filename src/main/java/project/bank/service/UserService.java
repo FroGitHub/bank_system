@@ -1,7 +1,7 @@
 package project.bank.service;
 
-import project.bank.dto.UserRegisterRequestDto;
-import project.bank.dto.UserRegisterResponseDto;
+import project.bank.dto.user.UserRegisterRequestDto;
+import project.bank.dto.user.UserRegisterResponseDto;
 
 public interface UserService {
 

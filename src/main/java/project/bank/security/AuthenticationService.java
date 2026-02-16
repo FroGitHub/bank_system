@@ -5,8 +5,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import project.bank.dto.UserLoginRequestDto;
-import project.bank.dto.UserLoginResponseDto;
+import project.bank.dto.user.UserLoginRequestDto;
+import project.bank.dto.user.UserLoginResponseDto;
 
 @Service
 @RequiredArgsConstructor

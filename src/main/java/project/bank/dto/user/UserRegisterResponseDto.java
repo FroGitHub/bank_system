@@ -1,4 +1,4 @@
-package project.bank.dto;
+package project.bank.dto.user;
 
 public record UserRegisterResponseDto(Long id,
                                       String email,
